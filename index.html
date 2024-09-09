@@ -1,1 +1,44 @@
-Hello World
+<html>
+	<style>
+		div {
+			margin: 10px 0;
+		}
+	</style>
+	<body>
+		<p>Clicking on a game will bring up a 'how to play' video.</p>
+		<p>
+			<div id="ta">Takenoko</div>
+			<div id="tk">Ticket To Ride</div>
+			<div id="wo">7 Wonders</div>
+			<div id="sm">Smallworld Underworld (same rules as Smallworld)</div>
+			<div id="ti">Tiny Epic Galaxies</div>
+			<div id="lo">Lords of Waterdeep</div>
+			<div id="ga">Galaxy Trucker</div>
+			<div id="ca">Carcassonne</div>
+			<div id="co">Codenames</div>
+			<div id="ar">Tales of the Arabian Nights (longer game)</div>
+			<div id="be">Between Two Cities</div>
+		</p>
+		<script type="text/javascript">
+			let m = new Map();
+			m.set('ta','https://www.youtube.com/watch?v=GvXqqsFKNH0');
+			m.set('tk','https://www.youtube.com/watch?v=yPGLlaGrShY');
+			m.set('wo','https://www.youtube.com/watch?v=6RgjEpxOe3s');
+			m.set('sm','https://www.youtube.com/watch?v=ibzqvd3b1Yg');
+			m.set('ti','https://www.youtube.com/watch?v=qDRFYtoFgHA&t=44s');
+			m.set('lo','https://www.youtube.com/watch?v=yPP4BhtW2fM&t=10s');
+			m.set('ga','https://www.youtube.com/watch?v=8kCmNNfC0Qs');
+			m.set('ca','https://www.youtube.com/watch?v=-74FYj21JVg');
+			m.set('co','https://www.youtube.com/watch?v=WErB95Brgbs');
+			m.set('ar','https://www.youtube.com/watch?v=D_bRIKukkyQ');
+			m.set('be','https://www.youtube.com/watch?v=ECSttXQZ6VE');
+			document.addEventListener('DOMContentLoaded', () => {
+				document.querySelectorAll('div').forEach(d => {
+					let url=m.get(d.id);
+					let text=d.innerHTML;
+					d.innerHTML = "<h3><a href='"+url+"' target='_blank'>"+text+"</h3><img role='button' src='"+d.id+".jpg' onClick='window.open("+url+")'/><hr/>"
+				});
+			})
+		</script>
+	</body>
+</html>
